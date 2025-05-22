@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LeadCustomerManagement.Models.Lead>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    body {
+        background: linear-gradient(to right, #e0f7e9, #ccf2dd); /* light green background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .btn-primary {
+        background-color: #ffd800;
+        border-color: #27ae60;
+    }
+
+        .btn-primary:hover {
+            background-color: #b6ff00;
+        }
+</style>
+
+<h2>Lead List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                <div class="btn btn-primary"> "@Html.ActionLink("Edit", "Edit", new { id = item.LeadId })</div> |
+                <div class="btn btn-primary"> @Html.ActionLink("Converted to Customer", "ConvertToCustomer", new { id = item.LeadId })</div> |
+                <div class="btn btn-primary"> @Html.ActionLink("Delete", "Delete", new { id = item.LeadId })</div>
+            </td>
+        </tr>
+    }
+
+</table>

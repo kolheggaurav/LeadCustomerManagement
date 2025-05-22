@@ -1,0 +1,97 @@
+﻿@model LeadCustomerManagement.Models.Lead
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    body {
+        background: linear-gradient(to right, #e0f7e9, #ccf2dd); /* light green background */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 35px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-header {
+        text-align: center;
+        color: #1e824c;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #b2dfdb;
+    }
+
+    .btn-primary {
+        background-color: #27ae60;
+        border-color: #27ae60;
+    }
+
+    .btn-primary:hover {
+        background-color: #1f8e4d;
+    }
+
+    .form-control {
+        border-radius: 6px;
+    }
+
+    label {
+        font-weight: 600;
+        color: #2d3436;
+    }
+</style>
+
+<div class="container">
+    <div class="form-container">
+        <div class="page-header">
+            ✨ Add New Lead Information ✨
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Email)
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Contact)
+            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Company)
+            @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group text-end">
+            <input type="submit" value="Create" class="btn btn-primary px-4" />
+        </div>
+    </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

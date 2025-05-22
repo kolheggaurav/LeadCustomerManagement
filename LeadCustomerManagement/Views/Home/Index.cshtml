@@ -1,0 +1,43 @@
+﻿@*@model LeadCustomerManagement.Models.Lead*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background: linear-gradient(to right, #e0f7e9, #ccf2dd); 
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .form-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 35px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .page-header {
+        text-align: center;
+        color: #1e824c;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px #b2dfdb;
+    }
+
+</style>
+
+<div class="container">
+    <div class="form-container">
+        <div class="page-header">
+            ✨ Lead-Customer Management System ✨
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
